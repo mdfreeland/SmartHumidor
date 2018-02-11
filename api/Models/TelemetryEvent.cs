@@ -1,8 +1,9 @@
 using System;
+using Microsoft.WindowsAzure.Storage.Table;
 
 namespace aspnetCoreReactTemplate.Models
 {
-    public class TelemetryEvent
+    public class TelemetryEvent : TableEntity
     {
         public string DeviceId {get; set;}
 
