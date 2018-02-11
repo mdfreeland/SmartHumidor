@@ -13,7 +13,12 @@ namespace aspnetCoreReactTemplate.Models
     }
 
     public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+    
     public DbSet<Contact> Contacts { get; set; }
+
+    public DbSet<Humidor> Humidors { get; set; }
+
+    public DbSet<Hygrometer> Hygrometers { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

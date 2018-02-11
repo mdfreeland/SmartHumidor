@@ -38,8 +38,7 @@ namespace aspnetCoreReactTemplate.Models
                 {
                     UserName = email,
                     Email = email,
-                    EmailConfirmed = true,
-                    GivenName = "John Doe"
+                    EmailConfirmed = true
                 };
 
                 await _userManager.CreateAsync(user, "P2ssw0rd!");
