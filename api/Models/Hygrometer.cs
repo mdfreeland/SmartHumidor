@@ -8,6 +8,10 @@ namespace aspnetCoreReactTemplate.Models
     public class Hygrometer
     {
         public long HygrometerId { get; set; }
+
+        public long HumidorId {get; set;}
+
+        public Humidor Humidor {get; set;}
         
         public string DeviceId { get; set; }
 
