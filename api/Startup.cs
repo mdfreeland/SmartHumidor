@@ -111,14 +111,6 @@ namespace aspnetCoreReactTemplate
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
-            app.UseForwardedHeaders(new ForwardedHeadersOptions
-            {
-                // Read and use headers coming from reverse proxy: X-Forwarded-For X-Forwarded-Proto
-                // This is particularly important so that HttpContet.Request.Scheme will be correct behind a SSL terminating proxy
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor |
-                ForwardedHeaders.XForwardedProto
-            });
-
             app.UseAuthentication();
             app.UseMvc();
         }
