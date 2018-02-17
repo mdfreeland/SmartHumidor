@@ -15,7 +15,7 @@ namespace aspnetCoreReactTemplate.Models
                   .Build();
 
             var options = new DbContextOptionsBuilder<DefaultDbContext>();
-            options.UseNpgsql(config.GetConnectionString("defaultConnection"));
+            options.UseSqlServer(config.GetConnectionString("defaultConnection"));
 
             return new DefaultDbContext(options.Options);
         }

@@ -33,9 +33,9 @@ namespace aspnetCoreReactTemplate
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFrameworkNpgsql().AddDbContext<DefaultDbContext>(options =>
+            services.AddDbContext<DefaultDbContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString("defaultConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("defaultConnection"));
             });
 
             // Configure Entity Framework Initializer for seeding

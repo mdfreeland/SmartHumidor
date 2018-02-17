@@ -11,15 +11,15 @@ using System;
 namespace api.Migrations
 {
     [DbContext(typeof(DefaultDbContext))]
-    [Migration("20180212233623_AddHumidorChildForeignKeys")]
-    partial class AddHumidorChildForeignKeys
+    [Migration("20180217013723_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
-                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452");
+                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("aspnetCoreReactTemplate.Models.ApplicationUser", b =>
                 {
@@ -88,7 +88,8 @@ namespace api.Migrations
 
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
-                        .HasName("user_name_index");
+                        .HasName("user_name_index")
+                        .HasFilter("[normalized_user_name] IS NOT NULL");
 
                     b.ToTable("users");
                 });
@@ -188,7 +189,8 @@ namespace api.Migrations
 
                     b.HasIndex("NormalizedName")
                         .IsUnique()
-                        .HasName("role_name_index");
+                        .HasName("role_name_index")
+                        .HasFilter("[normalized_name] IS NOT NULL");
 
                     b.ToTable("roles");
                 });
